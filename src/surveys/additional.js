@@ -8,29 +8,17 @@ export default {
         {
           type: "html",
           name: "intro",
-          html: "<p>(5점 리커트 척도: 1 = 전혀 그렇지 않다, 5 = 매우 그렇다)</p>"
+          html: "(5점 리커트 척도: 1 = 전혀 그렇지 않다, 5 = 매우 그렇다)"
         },
 
-        // A. 성과 기대 (Performance Expectancy)
-        {
-          type: "html",
-          name: "group_pe",
-          html: "<strong>A. 성과 기대 (Performance Expectancy)</strong>"
-        },
         {
           type: "matrix",
           name: "A",
-          title: "",
-          cellType: "radiogroup",
-          isAllRowRequired: true,
-          horizontalScroll: true,
-          columns: [
-            { value: 1, text: "1" },
-            { value: 2, text: "2" },
-            { value: 3, text: "3" },
-            { value: 4, text: "4" },
-            { value: 5, text: "5" }
-          ],
+          title: "A. 성과 기대 (Performance Expectancy)",
+          // isAllRowRequired: true,
+          // horizontalScroll: true,
+          // columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
+          columns: ["1", "2", "3", "4", "5"],
           rows: [
             {
               value: "q01",
@@ -46,20 +34,13 @@ export default {
             }
           ]
         },
-
-        // B. 노력 기대 (Effort Expectancy)
-        {
-          type: "html",
-          name: "B",
-          html: "<strong>B. 노력 기대 (Effort Expectancy)</strong>"
-        },
         {
           type: "matrix",
-          name: "ee_matrix",
-          title: "",
+          name: "B",
+          title: "B. 노력 기대 (Effort Expectancy)",
           cellType: "radiogroup",
-          isAllRowRequired: true,
-          horizontalScroll: true,
+          // isAllRowRequired: true,
+          // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
             {
@@ -76,20 +57,13 @@ export default {
             }
           ]
         },
-
-        // C. 지원 조건 (Facilitating Conditions)
-        {
-          type: "html",
-          name: "group_fc",
-          html: "<strong>C. 지원 조건 (Facilitating Conditions)</strong>"
-        },
         {
           type: "matrix",
           name: "C",
-          title: "",
+          title: "C. 지원 조건 (Facilitating Conditions)",
           cellType: "radiogroup",
-          isAllRowRequired: true,
-          horizontalScroll: true,
+          // isAllRowRequired: true,
+          // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
             {
@@ -109,20 +83,13 @@ export default {
             }
           ]
         },
-
-        // D. 설명 가능성 (Explainability)
-        {
-          type: "html",
-          name: "group_explain",
-          html: "<strong>D. 설명 가능성 (Explainability)</strong>"
-        },
         {
           type: "matrix",
           name: "D",
-          title: "",
+          title: "D. 설명 가능성 (Explainability)",
           cellType: "radiogroup",
-          isAllRowRequired: true,
-          horizontalScroll: true,
+          // isAllRowRequired: true,
+          // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
             {
@@ -142,20 +109,13 @@ export default {
             }
           ]
         },
-
-        // E. 신뢰성 (Trust)
-        {
-          type: "html",
-          name: "group_trust",
-          html: "<strong>E. 신뢰성 (Trust)</strong>"
-        },
         {
           type: "matrix",
           name: "E",
-          title: "",
+          title: "E. 신뢰성 (Trust)",
           cellType: "radiogroup",
-          isAllRowRequired: true,
-          horizontalScroll: true,
+          // isAllRowRequired: true,
+          // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
             {
@@ -173,20 +133,13 @@ export default {
             }
           ]
         },
-
-        // F. 사회적 영향 (Social Influence)
-        {
-          type: "html",
-          name: "group_social",
-          html: "<strong>F. 사회적 영향 (Social Influence)</strong>"
-        },
         {
           type: "matrix",
           name: "F",
-          title: "",
+          title: "F. 사회적 영향 (Social Influence)",
           cellType: "radiogroup",
-          isAllRowRequired: true,
-          horizontalScroll: true,
+          // isAllRowRequired: true,
+          // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
             {
@@ -206,21 +159,13 @@ export default {
             }
           ]
         },
-
-        // G. 조직 준비도 (Organizational Readiness)
-        {
-          type: "html",
-          name: "group_org",
-          html:
-            "<strong>G. 조직 준비도 (Organizational Readiness)</strong>"
-        },
         {
           type: "matrix",
           name: "G",
-          title: "",
+          title: "G. 조직 준비도 (Organizational Readiness)",
           cellType: "radiogroup",
-          isAllRowRequired: true,
-          horizontalScroll: true,
+          // isAllRowRequired: true,
+          // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
             {

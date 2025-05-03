@@ -8,12 +8,8 @@ export default {
         elements: [
           {
             type: "html",
-            name: "info1",
-            html: `<div style="margin:0px 0; padding:2px; background:#f9f9f9; border-left:2px solid #2196F3;"><strong>🛈 안내:</strong> 본 설문조사의 목적은 AI를 산업현장에 적용할 때 그룹별 중요하게 생각하는 항목들을 조사하고, 모든 이해관계자가 만족할 수 있는 방향을 모색하기 위한 조사입니다.   
-
-각 항목의에 가까울수록 중요도가 더 크다고 평가합니다.
-
-</div>`
+            name: "info_01",
+            html: `<strong>안내:</strong> 본 설문조사의 목적은 AI를 산업현장에 적용할 때 그룹별 중요하게 생각하는 항목들을 조사하고, 모든 이해관계자가 만족할 수 있는 방향을 모색하기 위한 조사입니다. 각 항목에 가까울수록 중요도가 더 크다고 평가합니다.`
           },
           {
             type: "text",

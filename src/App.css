@@ -1,84 +1,44 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* App.css */
-/* SurveyJS core import */
+
+/* SurveyJS core */
 @import "~survey-core/survey-core.css";
 
-
-
-/* ——— 설문 전체의 기본 폰트 크기를 0.875rem (≈14px) 로 줄이기 ——— */
+/* ——— 설문 전체 래퍼 & 기본 폰트 사이즈/최대폭 ——— */
 .survey-wrapper {
-  font-size: 16px;  /* 필요에 따라 0.75rem(≈12px), 0.8125rem(≈13px) 등으로 조정 */
+  font-size: 16px;          /* 본문 1rem ≈16px */
+  width: 100%;
+  max-width: 800px;         /* 필요에 따라 조정 */
+  margin: 0 auto;           /* 가운데 정렬 */
 }
 
-/* ——— 질문 제목(Question Title) 크기 ——— */
+/* ——— 질문 제목 크기 ——— */
 .survey-wrapper .sd-question__title {
-  font-size: 16px !important;  /* 예: 1.125rem ≈18px, 제목은 약간 크도록 유지 */
+  font-size: 16px !important;
 }
 
-/* ——— 질문 설명(Question Description) & 부가 텍스트 ——— */
+/* ——— 설명, 일반 텍스트 크기 ——— */
 .survey-wrapper .sd-question__description,
 .survey-wrapper .sd-text,
 .survey-wrapper .sv-string-viewer {
-  font-size: 14px !important;  /* 일반 본문 텍스트 */
+  font-size: 14px !important;
 }
 
-/* ——— 라디오·체크박스 선택지 레이블 ——— */
+/* ——— 라디오/체크박스 레이블 크기 ——— */
 .survey-wrapper .sd-item .sd-item__label {
   font-size: 12px !important;
 }
 
-/* ——— Rating min/max 레이블 (버튼 아래 텍스트) ——— */
+/* ——— Rating 버튼 아래 텍스트 기본 크기 ——— */
 .survey-wrapper .sd-rating__item-text {
-  font-size: 11px !important;  /* 버튼 크기에 맞춰 좀 더 작게 */
+  font-size: 11px !important;
 }
 
-
-
-/* ——— 전체 레이아웃 ——— */
+/* ——— 전체 레이아웃: 페이지, 로우 ——— */
 .sd-body__page {
   width: 100% !important;
   display: flex !important;
   flex-wrap: wrap !important;
   align-items: center !important;
-  max-width: none !important;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -95,261 +55,462 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
 }
 
-
-
-
-
-/* 1) 모든 텍스트 입력창(input[type="text"], textarea) 세로 높이/패딩/폰트 줄이기 */
+/* ——— 텍스트 입력, textarea 높이/패딩 줄이기 ——— */
 .survey-wrapper input[type="text"],
 .survey-wrapper input[type="email"],
 .survey-wrapper input[type="number"],
 .survey-wrapper textarea {
-  /* 높이를 2rem으로 고정(조절 가능) */
   height: 2rem !important;
-  min-height: 2rem !important;
-  max-height: 2rem !important;
-
-  /* 안쪽 여백 */
   padding: 0.25rem 0.5rem !important;
-
-  /* 폰트 크기 */
-  font-size: 0.875rem !important;
+  font-size: 12px !important;
   line-height: 1.2 !important;
-
-  /* box-sizing so padding 포함 */
   box-sizing: border-box !important;
 }
-
-/* 2) comment(textarea) 타입 기본 rows 해제(선택) */
 .survey-wrapper textarea {
-  resize: none !important;       /* textarea 리사이즈 막기 */
-  overflow-y: hidden !important; /* 스크롤 숨기기 */
+  resize: none !important;
+  overflow-y: hidden !important;
 }
 
-
-
-/* 라디오 원(외곽) 크기 축소 */
+/* ——— 라디오 버튼 크기 축소 & 정렬 ——— */
 .survey-wrapper span.sd-item__decorator.sd-radio__decorator {
-  width: 16px !important;
-  height: 16px !important;
-}
-
-/* 라디오 원(내부 점) 크기 축소 및 중앙 배치 */
-.survey-wrapper span.sd-item__decorator.sd-radio__decorator:after {
-  width: 8px !important;
-  height: 8px !important;
-  margin-left: 0px !important;  /* (14−8)/2 */
-  margin-top: 0px !important;   /* (14−8)/2 */
-}
-
-/* 라디오 버튼(span) 을 첫 번째 텍스트 라인 톱에 맞춤 */
-.survey-wrapper span.sd-item__decorator.sd-radio__decorator {
+  width: 14px !important;
+  height: 14px !important;
   vertical-align: text-top !important;
-  margin-top: 5px !important;
+  margin-top: 3px !important;
 }
-
-/* 4) 라디오-레이블 사이 간격 줄이기 */
+.survey-wrapper span.sd-item__decorator.sd-radio__decorator:after {
+  width: 6px !important;
+  height: 6px !important;
+  margin-left: 0px !important;
+  margin-top: 0px !important;
+}
 .survey-wrapper .sd-item {
   padding: 0.25rem 0 !important;
 }
 
-
-
-
-/* ——— Rating 아이콘 축소 및 텍스트 크기 ——— */
+/* ——— Rating 버튼 크기/간격 조정 ——— */
 .sd-rating__item--fixed-size {
   width: 12px !important;
   height: 12px !important;
-  padding: 0 !important;
   min-width: 12px !important;
   min-height: 12px !important;
+  padding: 0 !important;
   box-sizing: border-box;
 }
 .sd-rating__item-text {
   font-size: 12px !important;
 }
-
-/* ——— Rating 버튼 row 중앙 정렬 ——— */
+/* 버튼 행 중앙 정렬 */
 .sd-rating fieldset {
   display: flex !important;
   justify-content: center !important;
-  gap: 1rem !important;
+  gap: 2rem !important;
   padding: 0 !important;
   margin: 0 !important;
 }
 
-/* ——— 설문 전체 중앙 정렬 & 최대너비 ——— */
-.survey-wrapper {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* ——— 개별 Rating 컨테이너 ——— */
-.sv_q_rating .sd-rating {
-  display: inline-block !important;
-  width: 100% !important;
-  max-width: 600px !important;
-  min-height: 120px;
-  padding: 1rem 0;
-  box-sizing: border-box;
-  margin: 0 auto !important;
-}
-
-/* ——— 질문 콘텐츠 전체 중앙정렬 및 full-width ——— */
-.sv_q_rating .sd-question__content {
-  display: flex !important;
-  flex-direction: column;
-  justify-content: center !important;
-  width: 100% !important;
-}
-
-/* ——— Rating 스크롤 컨테이너 full-width / overflow 해제 ——— */
+/* ——— Rating 스크롤 컨테이너 full-width ——— */
 .sd-scrollable-container.sd-rating.sd-rating--wrappable {
   display: block !important;
   width: 100% !important;
   max-width: none !important;
   margin: 0 auto !important;
-  padding: 0 !important;
+  padding: 0 !important;            /* (A) 패딩 초기화 */
   overflow-x: visible !important;
 }
-
-/* ——— 버튼 그룹(full-width) ——— */
+/* 버튼 그룹(full-width) */
 .sd-scrollable-container.sd-rating--wrappable > fieldset[role="radiogroup"] {
   width: 100% !important;
   box-sizing: border-box;
   margin-top: 0.5rem !important;
 }
+/* ─────────────────────────────────────────────── */
+/* rating 라벨을 컨테이너 폭에 딱 맞춰 꽉 채우기          */
+/* ─────────────────────────────────────────────── */
 
-
-/* 1) Rating 컨테이너를 full-width 로 강제 */
-.sd-scrollable-container.sd-rating.sd-rating--wrappable {
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
-}
-
-/* 2) 버튼 그룹(첫 번째 fieldset)도 full-width */
-.sd-scrollable-container.sd-rating--wrappable > fieldset[role="radiogroup"] {
-  width: 100% !important;
-  box-sizing: border-box;
-}
-
-/* 3) 레이블 fieldset (sd-rating-labels:last-of-type): full-width flex + space-between */
-.sd-scrollable-container.sd-rating--wrappable > fieldset.sd-rating-labels:last-of-type,
-.sd-scrollable-container.sd-rating           > fieldset.sd-rating-labels:last-of-type {
-  display: flex !important;
+/* (B) labels fieldset 을 flex 컨테이너로, 폭 100%, margin/padding 제거 */
+.sd-scrollable-container.sd-rating--wrappable > fieldset.sd-rating-labels {
+  display: flex              !important;
   justify-content: space-between !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  padding: 0 1rem !important;
-  margin: 0 !important;
-  margin-top: 0.5rem !important;
+  align-items: center        !important;
+  width: 100%                !important;
+  margin: 0                  !important;
+  padding: 0 1rem            !important; /* 버튼 및 컨테이너 여유 */
+  box-sizing: border-box     !important;
 }
 
-/* 4) 그 레이블 fieldset 안의 min/max 텍스트에 flex:1 씌우고 텍스트 정렬 */
-.sd-scrollable-container.sd-rating--wrappable
-  > fieldset.sd-rating-labels:last-of-type
+/* (C) 내부 min/max 텍스트에 flex:1 균등 분배, 줄바꿈 허용 */
+.sd-scrollable-container.sd-rating--wrappable 
+  > fieldset.sd-rating-labels 
   .sd-rating__min-text,
-.sd-scrollable-container.sd-rating--wrappable
-  > fieldset.sd-rating-labels:last-of-type
+.sd-scrollable-container.sd-rating--wrappable 
+  > fieldset.sd-rating-labels 
   .sd-rating__max-text {
-  /* flex: 1 1 0 !important; */
-  position: static !important;       /* absolute 모드 해제 */
-  box-sizing: border-box;
-  margin: 0 !important;
-  flex: 0 0 45% !important;       /* 부모 컨테이너의 45% 체크 */
-  white-space: normal !important;  /* 줄바꿈 허용 */
-  word-break: break-word !important;/* 단어 단위로 줄바꿈 */
+  flex: 1                       !important;
+  margin: 0                     !important;
+  white-space: normal           !important;
+  word-break: break-word        !important;
 }
-.sd-scrollable-container.sd-rating--wrappable
-  > fieldset.sd-rating-labels:last-of-type
+
+/* (D) 좌·우 텍스트 정렬 */
+.sd-scrollable-container.sd-rating--wrappable 
+  > fieldset.sd-rating-labels 
   .sd-rating__min-text {
-  text-align: left !important;
+  text-align: left  !important;
 }
-.sd-scrollable-container.sd-rating--wrappable
-  > fieldset.sd-rating-labels:last-of-type
+.sd-scrollable-container.sd-rating--wrappable 
+  > fieldset.sd-rating-labels 
   .sd-rating__max-text {
   text-align: right !important;
 }
 
-/* 5) labels 전용 fieldset 전체: position:relative + full-width */
-fieldset.sd-rating-labels {
-  position: relative !important;
-  width: 100% !important;
-  box-sizing: border-box;
-  padding: 0 1rem !important;
-  margin: 2 !important;
-}
+/* ─────────────────────────────────────────────── */
 
-/* 6) absolute 모드로 좌우 끝 고정하기 */
-fieldset.sd-rating-labels .sd-rating__min-text,
-fieldset.sd-rating-labels .sd-rating__max-text {
-  position: absolute !important;
-  top: 0 !important;
-}
-
-/* 7) 각각 왼쪽·오른쪽 끝으로 배치 */
-fieldset.sd-rating-labels .sd-rating__min-text {
-  left: 0 !important;
-  text-align: left !important;
-}
-fieldset.sd-rating-labels .sd-rating__max-text {
-  right: 0 !important;
-  text-align: right !important;
-}
-
-/* 8) absolute 모드의 span 에도 flex:1 씌우기 (중복 허용) */
-fieldset.sd-rating-labels .sd-rating__min-text,
-fieldset.sd-rating-labels .sd-rating__max-text {
-  flex: 1 1 0 !important;
-}
-
-/* 9) absolute 텍스트 정렬 재확인 */
-fieldset.sd-rating-labels .sd-rating__min-text {
-  text-align: left !important;
-}
-fieldset.sd-rating-labels .sd-rating__max-text {
-  text-align: right !important;
-}
-
-/* 모바일에서 1~9 버튼이 두 줄로 넘어가지 않게 하고, 간격을 좁혀주는 예시 */
-@media (max-width: 360px) {
-  /* 1) 버튼 row 절대 한 줄로 고정 */
+/* ——— 모바일 반응형: 버튼 한 줄로 고정, 크기/폰트 축소 ——— */
+@media (max-width: 768px) {
   .sd-rating fieldset {
     flex-wrap: nowrap !important;
-    /* 2) gap 을 아주 좁게 */
-    gap: 1rem !important;
+    gap: 1rem      !important;
   }
-
-  /* 3) 버튼 원 크기도 살짝 축소 (선택) */
   .sd-rating__item--fixed-size {
     width: 10px !important;
     height: 10px !important;
     min-width: 10px !important;
     min-height: 10px !important;
   }
-
-  /* 4) 버튼 안 숫자 폰트도 조금 더 줄여서 여유 확보 */
   .sd-rating__item-text {
     font-size: 0.75rem !important;
   }
 }
 
-
-
-/* 제목과 bulletDescriptionHTML 사이 간격 조절 */
+/* ——— title과 description 사이 여유 ——— */
 .survey-wrapper .sd-question__title + .sd-question__description {
-  margin-top: 0.5rem !important;  /* 필요에 따라 0.5rem, 1.5rem 등으로 조정 */
+  margin-top: 0.5rem !important;
 }
-
 .survey-wrapper .sd-question__description {
   margin-top: 0.5rem !important;
 }
 
+/* ——— 질문 박스(프레임) 전체 padding/min-height ——— */
+.sd-element--with-frame {
+  padding: 1rem !important;
+  /* min-height: 200px !important; */
+}
+.sd-element--with-frame .sd-question__content {
+  margin-top: 1rem !important;
+}
+
+/* ───────────────────────────────────────────────────────── */
+/* sd-rating-labels 을 프레임 끝까지 꽉 채우기 (녹색=프레임, 파란=labels) */
+/* ───────────────────────────────────────────────────────── */
+.survey-wrapper 
+  .sd-element--with-frame          /* 질문 프레임 */
+  .sd-element__content             /* 프레임 안의 콘텐츠 */
+  .sd-scrollable-container.sd-rating--wrappable   /* rating 전체 컨테이너 */
+  > fieldset.sd-rating-labels {    /* 바로 아래의 labels fieldset */
+  
+  /* (1) 부모 프레임의 좌우 1rem 패딩을 상쇄하기 위해 음수 마진 */
+  margin: 0 -1rem !important;
+  
+  /* (2) 폭은 auto (음수 마진으로 꽉 차도록) */
+  width: auto !important;
+  
+  /* (3) 내부 좌우 패딩은 그대로 1rem 유지 */
+  padding: 0 1rem !important;
+  
+  /* (4) flex 컨테이너, 좌우 간격 균등 배치 */
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  align-items: flex-start !important; 
+}
 
 
 
+/* 내부 min/max 텍스트 flex 배분 및 정렬은 그대로 유지 */
+.survey-wrapper 
+  .sd-scrollable-container.sd-rating--wrappable 
+  > fieldset.sd-rating-labels 
+  .sd-rating__min-text,
+.survey-wrapper 
+  .sd-scrollable-container.sd-rating--wrappable 
+  > fieldset.sd-rating-labels 
+  .sd-rating__max-text {
+  flex: 1 !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+.survey-wrapper 
+  .sd-scrollable-container.sd-rating--wrappable 
+  > fieldset.sd-rating-labels 
+  .sd-rating__min-text {
+  text-align: left !important;
+}
+.survey-wrapper 
+  .sd-scrollable-container.sd-rating--wrappable 
+  > fieldset.sd-rating-labels 
+  .sd-rating__max-text {
+  text-align: right !important;
+}
+
+
+/* ───────────────────────────────────────────────────────── */
+/* rating 컨트롤과 프레임 사이에 수직 여백 추가 */
+/* ───────────────────────────────────────────────────────── */
+.survey-wrapper 
+  .sd-element--with-frame           /* 회색 박스 */
+  .sd-element__content              /* 박스 안의 콘텐츠 */
+  .sd-scrollable-container.sd-rating {  /* rating 전체 컨테이너 */
+    /* 위아래 여백을 각각 1rem 줍니다 */
+    margin: 1rem 0 !important;
+}
+
+/* 또는, 버튼 그룹(fieldset) 바로 아래에만 여백을 주고 싶다면 */
+.survey-wrapper
+  .sd-scrollable-container.sd-rating--wrappable
+  > fieldset[role="radiogroup"] {
+    margin-bottom: 1rem !important;
+}
+
+  /* ────────────────────────────────────────────────────────── */
+  /* 전체 프레임(.sd-element--with-frame) 의 좌우 튀어나옴 방지 */
+  /* ────────────────────────────────────────────────────────── */
+  .survey-wrapper .sd-element--with-frame {
+    /* 프레임 안쪽 여백을 충분히 주되 */
+    padding: 1rem !important;
+    /* 수평 스크롤이 절대 생기지 않게 */
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  
+
+
+
+  /* ===================================================================
+   Matrix 질문: flex 기반이 아닌 Table 레이아웃을 강제 적용
+   =================================================================== */
+.survey-wrapper .sd-matrix.sd-table-wrapper {
+    /* 테이블 감싸는 래퍼의 스크롤을 허용하거나 숨길 수 있습니다.
+       여기선 overflow-x:auto; 를 주어 横스크롤이 필요한 경우만 스크롤로 보이게 합니다. */
+    overflow-x: auto !important;
+  }
+  
+  .survey-wrapper .sd-matrix__table {
+    display: table !important;
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+    border: none !important;       /* 그리드 선 전부 제거 */
+  }
+  
+  .survey-wrapper .sd-matrix__table thead,
+  .survey-wrapper .sd-matrix__table tbody {
+    display: table-header-group !important;
+    display: table-row-group !important;
+  }
+  
+  .survey-wrapper .sd-matrix__table thead tr,
+  .survey-wrapper .sd-matrix__table tbody tr {
+    display: table-row !important;
+  }
+  
+  .survey-wrapper .sd-matrix__table th,
+  .survey-wrapper .sd-matrix__table td {
+    display: table-cell !important;
+    padding: 0.1rem 0.1rem !important; /* 셀 안쪽 여백(padding)을 좀 더 작게 */
+    /* border: 1px solid #e0e0e0 !important; */
+    text-align: center !important;
+    vertical-align: middle !important;
+    box-sizing: border-box;
+    border: none !important;       /* 그리드 선 전부 제거 */
+  }
+  
+  /* 첫 번째 컬럼(질문텍스트)은 좌측 정렬, 폭 40% */
+  .survey-wrapper .sd-matrix__table th:first-child,
+  .survey-wrapper .sd-matrix__table td:first-child {
+    width: 50% !important;
+    text-align: left !important;
+    padding: 0.5rem !important;
+  }
+  
+  /* 나머지 1–5 컬럼은 균등 분배, 중앙 정렬 */
+  .survey-wrapper .sd-matrix__table th:not(:first-child),
+  .survey-wrapper .sd-matrix__table td:not(:first-child) {
+    width: calc(50% / 5) !important; /* (100%−40%)÷5 */
+    text-align: center !important;
+  }
+  
+  /* 모바일(<=480px)에서도 한 줄 유지 */
+  @media (max-width: 768px) {
+    .survey-wrapper .sd-matrix__table {
+      font-size: 0.8rem !important;
+    }
+    .survey-wrapper .sd-matrix__table th,
+    .survey-wrapper .sd-matrix__table td {
+      padding: 0.3rem !important;  /* 전체 matrix 셀은 기본적으로 가운데 정렬 */
+      text-align: center !important;
+      /* padding: 0.2rem 0.4rem !important; */
+    }
+  }
+
+/* ──────────────────────────────────────────────────────── */
+/* Matrix 질문(테이블) 전체: 1~5 컬럼은 가운데 정렬, 질문 텍스트 칸만 왼쪽 정렬 */
+/* ──────────────────────────────────────────────────────── */
+
+/* (1) 모든 해더와 셀을 가운데 정렬 */
+.survey-wrapper .sd-table-wrapper table.sd-matrix__table th,
+.survey-wrapper .sd-table-wrapper table.sd-matrix__table td {
+  text-align: center !important;
+}
+
+/* (2) 질문 텍스트가 들어가는 첫 번째 칸만 왼쪽 정렬 예외 처리 */
+.survey-wrapper .sd-table-wrapper table.sd-matrix__table td.sd-table__cell--row-text {
+  text-align: left !important;
+}
+
+/* ────────────────────────────────────────────────────────── */
+/* Matrix 질문 전용 커스텀 스타일                            */
+/* ────────────────────────────────────────────────────────── */
+
+/* 1) 전체 matrix 테이블을 감싸는 wrapper */
+.survey-wrapper .sd-matrix.sd-table-wrapper {
+    overflow: visible !important;   /* 필요 시 스크롤 없애고 */
+  }
+  
+  /* 2) matrix 테이블: 고정폭 레이아웃, full-width */
+  .survey-wrapper .sd-matrix.sd-table-wrapper table.sd-matrix__table {
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+  }
+  
+  /* 3) 모든 헤더(th)와 셀(td)에 공통 패딩/가운데 정렬 */
+  .survey-wrapper .sd-matrix.sd-table-wrapper th.sd-table__cell,
+  .survey-wrapper .sd-matrix.sd-table-wrapper td.sd-table__cell {
+    padding: 0.5rem !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    border: none !important;        /* 선 다 지우기 */
+  }
+  
+  /* 4) 질문 텍스트 칸(첫 번째 컬럼)만 왼쪽 정렬 */
+  .survey-wrapper .sd-matrix.sd-table-wrapper td.sd-table__cell--row-text {
+    text-align: left !important;
+  }
+  
+  /* 5) 모바일 전용 숫자 레이블 숨기기 */
+  .survey-wrapper .sd-matrix__responsive-title {
+    display: none !important;
+  }
+  
+
+
+  
+/* 라디오 옆에 자동으로 붙는 숫자 텍스트(= responsive title) 숨기기 */
+.survey-wrapper .sd-matrix__responsive-title {
+  display: none !important;
+}
+
+/* 1) sd-element--with-frame 컨테이너는 padding:1rem 유지 */
+/* 2) 질문 헤더(.sd-question__header) 기본 패딩 제거 */
+.survey-wrapper .sd-element--with-frame .sd-question__header {
+    padding: 0 !important;
+    margin: 0 0 1rem !important; /* 아래쪽 여백만 1rem 주기 */
+  }
+  
+  /* 3) 질문 콘텐츠(.sd-question__content) 위쪽 마진은 0으로 (이미 컨테이너 패딩에 의해 간격이 확보됨) */
+  .survey-wrapper .sd-element--with-frame .sd-question__content {
+    margin-top: 0 !important;
+  }
+
+
+
+/* matrix(table) 타입 질문에만 헤더 아래 1px 선 넣기 */
+.survey-wrapper .sd-question--table .sd-question__header {
+    border-bottom: 1px solid #EAEAEA !important;
+    margin-bottom: 0.5rem !important; /* 필요에 따라 여백 조절 */
+    padding-bottom: 0.5rem !important; /* 필요에 따라 여백 조절 */
+  }
+
+/* 1) 매트릭스 타입 질문의 빈 헤더(1px 선) 배경과 패딩을 없애버립니다 */
+.survey-wrapper .sd-question--table .sd-question__header {
+    background: transparent !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+    padding-bottom: 0.5rem !important;  /* 밑줄 위에 여유 */
+    margin-bottom: 0.5rem !important;  /* 밑줄 아래에 여유 */
+  }
+  
+  /* 2) 혹시 테이블 직전/divider 용도로 남아 있는 보더도 제거 */
+  .survey-wrapper .sd-question--table .sd-question__header:before,
+  .survey-wrapper .sd-question--table .sd-question__header:after {
+    content: none !important;
+  }
+  
+
+
+  /* 모바일 전용 텍스트 크기 수정 */
+@media (max-width: 768px) {
+    /* 1) 질문 제목 (Question Title) 크기 */
+    .survey-wrapper .sd-question__title {
+      font-size: 14px !important; /* 기존보다 작게: 16px */
+      line-height: 1.3 !important;
+    }
+  
+    /* 2) 질문 설명 및 html/text 타입 본문 크기 */
+    .survey-wrapper .sd-question__description,
+    .survey-wrapper .sd-text,
+    .survey-wrapper .sv-string-viewer {
+      font-size: 12px !important; /* 14px */
+      line-height: 1.4 !important;
+    }
+  
+    /* 3) matrix 같은 html 문항 내부 텍스트 (셀 내용) */
+    .survey-wrapper .sd-table__cell,
+    .survey-wrapper .sd-matrix__cell {
+      font-size: 12px !important;
+    }
+  }
+  
+
+/* ────────────────────────────────────────────────────────── */
+/* HTML(안내) 문항 전용 스타일 오버라이드                   */
+/* ────────────────────────────────────────────────────────── */
+/* 1) HTML 질문 전체 컨테이너 여백(패딩) 늘리기 */
+.survey-wrapper .sd-question--html .sd-element__content {
+    padding: 1rem !important;
+    margin: 0 !important;
+}
+  
+  /* 2) HTML 질문 내부 텍스트 (.sd-html) 글자 크기·행간 조정 */
+  .survey-wrapper .sd-question--html .sd-html {
+    font-size: 0.875rem !important;  /* ≈14px */
+    line-height: 1.6 !important;
+    color: #363636 !important;
+    background: transparent !important;
+  }
+
+
+  
+  /* 텍스트 블록 자체에도 혹시 남아 있는 마진/들여쓰기 초기화 */
+  .survey-wrapper .sd-question--html .sd-html {
+    margin: 0 !important;
+    text-indent: 0 !important;
+  }
+  
+  /* 3) 인라인으로 그려진 회색 박스(안쪽 <div>) 제거 */
+  .survey-wrapper .sd-question--html .sd-html > div {
+    background: none !important;
+    border-left: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* 4) 만약 .sd-html 직속 자식이 아니라 중첩된 <div>가 있다면 전역으로 초기화 */
+  .survey-wrapper .sd-question--html .sd-html div {
+    background: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
