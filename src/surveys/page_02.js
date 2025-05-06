@@ -1,10 +1,15 @@
-// src/surveys/hierarchy_01.js
 export default {
-        title: "주기준",
+        title: "AI 모델 개발 의사결정 기준 - 주기준",
         pages: [
           {
-            name: "page1",
+            name: "page_02_hier_01",
             elements: [
+              {
+                type: "html",
+                name: "main_02",
+                html: `
+                <img src="${require("./image_hier_02.png")}" alt="hierarchy_02" style="max-width: 100%; height: auto; margin-top: 0.5rem;"/>`
+              },
 
     {      
       name: "hierarchy_01_01",
@@ -80,7 +85,7 @@ export default {
       bulletDescriptionHTML: `
       <ul style="margin:0;padding-left:1.2em;list-style:disc">
         <li>모델 유지보수: 모델을 사용하는데 물리적 자원, 인적 자원이 얼마나 소요되는지를 평가합니다. 또한 모델이 동일 파이프라인으로 다른 task에 재사용이 가능한지를 평가합니다.</li>
-        <li>실무 적용성: 모델 배포 후 기존 레거시 시스템이나 자동화 설비 등에 적용되기 적합한지와 end-user가 실시간으로 사용가능한지를 평가합니다.</li>
+        <li>실무 적용성: 모델 배포 후 기존 레거시 시스템이나 자동화 설비 등에 적용되기 적합한지와 end-user가 실시간으로 사용 가능한지를 평가합니다.</li>
       </ul>
     `,
       // isRequired: true,
@@ -100,9 +105,9 @@ export default {
           title: "이후 질문부터는 선택의 편의성을 위해 아래 Task 중 본인과 연관된 분야를 선택하여 응답하실 수 있습니다.",
           isRequired: true,
           choices: [
-            { value: "01_wbm", text: "WBM 설문" },
-            { value: "02_fdc", text: "FDC 설문" },
-            { value: "03_general", text: "비해당" }
+            { value: "page_03_01_wbm", text: "WBM 설문" },
+            { value: "page_03_02_fdc", text: "FDC 설문" },
+            { value: "page_03_03_gen", text: "비해당" }
           ],
           choicesLayout: "vertical"
         }

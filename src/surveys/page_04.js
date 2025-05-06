@@ -1,9 +1,8 @@
-
 export default {
   title: "AI 모델 수용성 조사",
   pages: [
     {
-      name: "page1",
+      name: "page_04",
       elements: [
         {
           type: "html",
