@@ -35,7 +35,7 @@ export default {
             bulletDescriptionHTML: `
             <ul style="margin:0;padding-left:1.2em;list-style:disc">
               <li>데이터 불균형 내성: 특정 이상 형태가 지속 발생하거나 계속 정상이더라도 잘 판정함. Trend 형태가 끊겨있는 구간이 많아도 모델이 잘 판정하는 능력</li>
-              <li>데이터 노이즈 내성: 학습/평가 시에 일부 이상판정을 잘못해서 넣어줘도 잘 판정함. 크기와 색깔이 제멋대로이거나 PM/spec선이 마구 얽혀있어도 잘 판정하는 능력</li>
+              <li>데이터 노이즈 내성: 학습/평가 시에 일부 이상판정을 잘못해서 넣어줘도 잘 작동함. 크기와 색깔이 제멋대로이거나 PM/spec선이 마구 얽혀있어도 잘 판정하는 능력</li>
             </ul>
           `,
             // isRequired: true,
@@ -161,7 +161,7 @@ export default {
             bulletDescriptionHTML: `
             <ul style="margin:0;padding-left:1.2em;list-style:disc">
               <li>물적 자원: 서버, 네트워크 환경 등 모델 운영 및 유지보수에 필요한 물적 자원. 자원이 덜 들수록 서버 용량이 작고, 네트워크 소비가 적음</li>
-              <li>모델의 확장성: 동일 파이프라인으로 다른 task에 재사용 할 수 있는 능력. FDC뿐만 아니라 실 계측(THK/CD 등)에 이상 감지를 미세조정(파인튜닝)만 하면 사용이 가능함</li>
+              <li>모델의 확장성: 동일 파이프라인으로 다른 task에 재사용 할 수 있는 능력. 예시로, 미세조정(파인튜닝) 학습만 하면 실 계측(THK/CD 등) 이상 감지에 사용 가능</li>
             </ul>
           `,
             // isRequired: true,
@@ -182,7 +182,7 @@ export default {
             bulletDescriptionHTML: `
             <ul style="margin:0;padding-left:1.2em;list-style:disc">
               <li>인적 자원: 재학습 주기 및 관리, 운영 및 유지보수에 소요되는 인원 및 시간. 자원이 덜 들수록 소규모의 인원으로 관리가 가능하며, 모델의 재 학습 주기가 긴 것을 뜻함</li>
-              <li>모델의 확장성: 동일 파이프라인으로 다른 task에 재사용 할 수 있는 능력. FDC뿐만 아니라 실 계측(THK/CD 등)에 이상 감지를 미세조정(파인튜닝)만 하면 사용이 가능함</li>
+              <li>모델의 확장성: 동일 파이프라인으로 다른 task에 재사용 할 수 있는 능력. 예시로, 미세조정(파인튜닝) 학습만 하면 실 계측(THK/CD 등) 이상 감지에 사용 가능</li>
             </ul>
           `,
             // isRequired: true,
@@ -202,7 +202,7 @@ export default {
             descriptionLocation: "underTitle",
             bulletDescriptionHTML: `
             <ul style="margin:0;padding-left:1.2em;list-style:disc">
-              <li>기존 시스템 연동: Add-on 형식으로 기존 시스템에 얹어서 사용 가능 여부. EES, YMS 등의 시스템 안에서 연동하여 사용 가능. 또한 VoC를 반영하여 모델 및 사용 환경을 원하는 방향으로 개선 가능한지 여부. 미검출이 치명적인 상황에서 과검출을 어느정도 감수하더라도 미검출이 줄어들수 있게 조정할 수 있음</li>
+              <li>기존 시스템 연동: Add-on 형식으로 기존 시스템(EES, YMS 등)에 얹어서 사용 가능, VoC를 반영하여 모델 및 사용 환경을 원하는 방향으로 개선 가능 (과검출을 다소 감수하더라도 미검출이 줄어들수 있게 조정)</li>
               <li>최초 개발 소요 자원: 최초 모델의 학습 및 평가에서 소요되는 인적, 물적 자원의 규모. 자원이 덜 들수록 개발 비용이 적으며, 개발 시간이 짧다는 것을 뜻함</li>
             </ul>
           `,
@@ -223,8 +223,8 @@ export default {
             descriptionLocation: "underTitle",
             bulletDescriptionHTML: `
             <ul style="margin:0;padding-left:1.2em;list-style:disc">
-              <li>기존 시스템 연동: Add-on 형식으로 기존 시스템에 얹어서 사용 가능 여부. EES, YMS 등의 시스템 안에서 연동하여 사용 가능. 또한 VoC를 반영하여 모델 및 사용 환경을 원하는 방향으로 개선 가능한지 여부. 미검출이 치명적인 상황에서 과검출을 어느정도 감수하더라도 미검출이 줄어들수 있게 조정할 수 있음</li>
-              <li>실시간 사용 편의성: 실시간 사용 편의성: 사용자가 실시간으로 사용이 가능하여 사용에 불편함이 없는지 여부. Wafer track-out시점부터 30분 이내로 이상탐측 경고 메일 발송 가능</li>
+              <li>기존 시스템 연동: Add-on 형식으로 기존 시스템(EES, YMS 등)에 얹어서 사용 가능, VoC를 반영하여 모델 및 사용 환경을 원하는 방향으로 개선 가능 (과검출을 다소 감수하더라도 미검출이 줄어들수 있게 조정)</li>
+              <li>실시간 사용 편의성: 사용자가 실시간으로 사용이 가능하여 사용에 불편함이 없는지 여부. 예를 들면 wafer T/O 시점부터 30분 이내로 이상 트랜드 경고 메일을 받을 수 있음</li>
             </ul>
           `,
             // isRequired: true,
@@ -245,7 +245,7 @@ export default {
             bulletDescriptionHTML: `
             <ul style="margin:0;padding-left:1.2em;list-style:disc">
               <li>최초 개발 소요 자원: 최초 모델의 학습 및 평가에서 소요되는 인적, 물적 자원의 규모. 자원이 덜 들수록 개발 비용이 적으며, 개발 시간이 짧다는 것을 뜻함</li>
-              <li>실시간 사용 편의성: 사용자가 실시간으로 사용이 가능하여 사용에 불편함이 없는지 여부. Wafer track-out시점부터 30분 이내로 이상탐측 경고 메일 발송 가능</li>
+              <li>실시간 사용 편의성: 사용자가 실시간으로 사용이 가능하여 사용에 불편함이 없는지 여부. 예를 들면 wafer T/O 시점부터 30분 이내로 이상 트랜드 경고 메일을 받을 수 있음</li>
             </ul>
           `,
             // isRequired: true,
