@@ -11,7 +11,8 @@ export default {
                 <img src="${require("./image_hier_02.png")}" alt="hierarchy_02" style="max-width: 100%; height: auto; margin-top: 0.5rem;"/>`
               },
 
-    {      
+    { 
+      type: "rating",
       name: "hierarchy_01_01",
       title: "[효용성] 모델의 강건성 vs 모델의 성능",
       description: "\u00A0",               
