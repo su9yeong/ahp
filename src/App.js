@@ -19,10 +19,19 @@ export default function App() {
   const [surveyJson, setSurveyJson] = useState(mainJson);
   const [chosenChoice, setChosenChoice] = useState(null);
 
+  const [allAnswers, setAllAnswers] = useState({});
+
+
   // 총 스테이지 수 (main → hierarchy → choice → additional)
   const totalStages = 4;
   // percent 는 stage 변화에 따라 25,50,75,100 으로 변경
   const percent = Math.round(((stage + 1) / totalStages) * 100);
+
+  // stage 가 바뀔 때마다 창을 맨 위로 스크롤
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [stage]);
+  
 
   const model = useMemo(() => {
     const m = new Model(surveyJson);
@@ -33,13 +42,43 @@ export default function App() {
     m.showTitle = false;
     m.showProgressBar = false;
 
+    // allAnswers 에 저장된 모든 키·값을 모델에 채워주기
+    Object.entries(allAnswers).forEach(([key, val]) => m.setValue(key, val));
+
     // 완료화면 HTML
     m.completedHtml = `
-      <div style="text-align:center; padding:2rem 1rem;">
-        <h2>Thank you for completing the survey!</h2>
-        <p>Your responses have been recorded.</p>
-      </div>
+        <div style="text-align:center; padding:2rem 1rem;">
+          <h2>Thank you for completing the survey!</h2>
+          <p>Your responses have been recorded.</p>
+        </div>
     `;
+  
+
+    
+    // 완료시에만 한 번 서버로 전송
+    m.onComplete.add(async sender => {
+      // 마지막 페이지 답도 합쳐서
+      const finalData = { ...allAnswers, ...sender.data };
+        try {
+          const res  = await fetch("https://script.google.com/macros/s/AKfycbyXFRUbqmqzigST8AAtv4dBW5CvpFSdhlYfxw1-maOBgKJDpXFSx-IzV0-AE65G0P_IeA/exec", {
+            method:  "POST",
+            mode:    "cors",
+            // headers: { "Content-Type": "application/json" },
+            body:    JSON.stringify(finalData),
+          });
+          console.log("sheet save OK", await res.json());
+        } catch (e) {
+          console.error("sheet save ERROR", e);
+        }
+          // 완료화면
+          // m.completedHtml = `
+          //   <div style="text-align:center;padding:2rem 1rem">
+          //     <h2>설문이 완료되었습니다. 감사합니다!</h2>
+          //   </div>`;
+        setStage(4);
+      });
+
+
 
     // Rating 질문이 렌더될 때마다 min/max 레이블 옮기기
     m.onAfterRenderQuestion.add((sender, options) => {
@@ -68,27 +107,10 @@ export default function App() {
         }
         descEl.innerHTML = q.bulletDescriptionHTML;
       }
-      
-      
   });
 
-
-    m.onComplete.add((sender) => {
-      const result = sender.data;
-      fetch("https://script.google.com/macros/s/AKfycbztv_A7UrX8CcXBoF5ubIy6FoyZiTAYROpZoxmccld1X_tM5nOfz6fh3MUunQBmEaayTg/exec", {
-        method: "POST",
-        mode: "cors",                      // 기본값이기도 하지만 명시해 줍니다
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(result),
-      })
-        .then(r => r.json())
-        .then(j => console.log("sheet 저장 ok:", j))
-        .catch(e => console.error("error:", e));
-        setStage(4);
-    });
-
     return m;
-  }, [surveyJson]);
+  }, [surveyJson, allAnswers]);
 
   // 유효성 검사
   const validatePage = () => {
@@ -102,6 +124,7 @@ export default function App() {
 
   // Prev / Next
   const handlePrev = () => {
+    setAllAnswers(prev => ({ ...prev, ...model.data }));
     if (stage === 4) {
       setSurveyJson(additionalJson);
       setStage(3);
@@ -116,23 +139,38 @@ export default function App() {
       setStage(0);
     }
   };
+
+  
   const handleNext = () => {
     if (stage < 3 && !validatePage()) return;
-    if (stage === 0) {
-      setSurveyJson(hierarchyJson);
-      setStage(1);
-    } else if (stage === 1) {
-      const choice = model.data.surveySelect;
-      if (!choice) return;
-      setChosenChoice(choice);
-      import(`./surveys/${choice}.js`).then(m => setSurveyJson(m.default));
-      setStage(2);
-    } else if (stage === 2) {
-      setSurveyJson(additionalJson);
-      setStage(3);
-    } else if (stage === 3) {
+
+
+    if (stage === 3) {
+      setStage(4);
       model.completeLastPage();
+      return;
     }
+
+    setAllAnswers(prev => {
+      const merged = { ...prev, ...model.data };
+      if (stage === 0) {
+        setSurveyJson(hierarchyJson);
+        setStage(1);
+      } else if (stage === 1) {
+        const choice = model.data.surveySelect;
+        if (!choice) return merged;
+        setChosenChoice(choice);
+        import(`./surveys/${choice}.js`).then(m => {
+          setSurveyJson(m.default);
+          setStage(2);
+        });
+      } else if (stage === 2) {
+        setSurveyJson(additionalJson);
+        setStage(3);
+      } 
+      return merged;
+    });
+
   };
 
   const isFirst = stage === 0;
