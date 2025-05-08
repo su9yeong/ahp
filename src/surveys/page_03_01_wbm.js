@@ -9,9 +9,16 @@ export default {
                 name: "info_01",
                 html: `<strong>WBM 자동 분류 관련</strong> </br> 
                     다음으로는 앞서 설문한 주기준의 하위기준에 대한 중요도 비교입니다. </br>
-                    <img src="${require("./image_hier_02.png")}" 
-                    alt="hierarchy_02" style="max-width: 100%; height: auto; margin-top: 0.5rem;"/>
-                    </br></br>
+
+                      <div style="text-align: center; margin-top: 0.5rem;">
+                      <img
+                        src="${require("./image_hier_03.png")}"
+                        alt="hierarchy_03"
+                        style="max-width: 80%; height: auto;"
+                      />
+                    </div>
+
+                    </br>
 EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합니다.
 아래와 같이 이상 패턴을 8가지로 구분하고, 이 구분된 특정 유형들이 일정물량 이상 쌓이면 품질 사고가 발생했다고 가정하며, 혐의 공정/설비를 추적합니다.
 이 과정은 하루에도 수없이 많은 EDS test가 진행되고 있기 때문에 사람이 수작업으로 하기에 매우 고된 일입니다.
@@ -39,7 +46,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>데이터 노이즈 내성: 학습/평가 시에 일부 불량 Map의 분류의 실수가 있더라도 잘 작동함, 사고 구간이 많아 전반적으로 edge 불량이 발생하는 상황에서도 원래 패턴에 대한 분류는 잘 하는 능력</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -60,7 +67,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>모델 일관성: 새로운 불량 분류를 위해 재학습 해도 기존 대비 성능이 떨어지지 않는 능력</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -81,7 +88,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>모델 일관성: 새로운 불량 분류를 위해 재학습 해도 기존 대비 성능이 떨어지지 않는 능력</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -102,7 +109,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>알려지지 않은 불량 유형 탐지: 학습 데이터셋과 다른 새로운 패턴의 유형에 대해 기존 유형을 맞추기 보다 처음 나오는 유형이라고 알려주는 능력</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -123,7 +130,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>결함 맥락 해석: 특정 불량 분류 후 기존 이력 상 원인 공정이 어떤것인지 해석하는 능력</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -144,7 +151,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>인적 자원: 재학습 주기 및 관리, 운영 및 유지보수에 소요되는 인원 및 시간. 자원이 덜 들수록 소규모의 인원으로 관리가 가능하며, 모델의 재 학습 주기가 긴 것을 뜻함</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -165,7 +172,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>모델의 확장성: 동일 파이프라인으로 다른 task에 재사용 할 수 있는 능력. 예시로, 미세조정(파인튜닝) 학습만 하면 in line SEM defect의 분류에 사용 가능</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -186,7 +193,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>모델의 확장성: 동일 파이프라인으로 다른 task에 재사용 할 수 있는 능력. 예시로, 미세조정(파인튜닝) 학습만 하면 in line SEM defect의 분류에 사용 가능</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -207,7 +214,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>최초 개발 소요 자원: 최초 모델의 학습 및 평가에서 소요되는 인적, 물적 자원의 규모. 자원이 덜 들수록 개발 비용이 적으며, 개발 시간이 짧다는 것을 뜻함</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -228,7 +235,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>실시간 사용 편의성: 사용자가 실시간으로 사용이 가능하여 사용에 불편함이 없는지 여부. 예를 들면 EDS 종료 시점부터 10분 이내로 WBM 분류 결과를 사용자가 볼 수 있음</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -249,7 +256,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
               <li>실시간 사용 편의성: 사용자가 실시간으로 사용이 가능하여 사용에 불편함이 없는지 여부. 예를 들면 EDS 종료 시점부터 10분 이내로 WBM 분류 결과를 사용자가 볼 수 있음</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,

@@ -8,8 +8,13 @@ export default {
             type: "html",
             name: "info_03",
             html: `다음으로는 앞서 설문한 주기준의 하위기준에 대한 중요도 비교입니다. </br>
-                <img src="${require("./image_hier_02.png")}" 
-                alt="hierarchy_02" style="max-width: 100%; height: auto; margin-top: 0.5rem;"/>`
+                <div style="text-align: center; margin-top: 0.5rem;">
+                <img
+                  src="${require("./image_hier_03.png")}"
+                  alt="hierarchy_03"
+                  style="max-width: 80%; height: auto;"
+                />
+                </div>`
           },  
           {
             type: "rating",
@@ -23,7 +28,7 @@ export default {
               <li>데이터 노이즈 내성: 노이즈나 잘못된 라벨이 포함된 데이터에서도 성능 저하가 최소화됨</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -44,7 +49,7 @@ export default {
               <li>모델 일관성: 새롭거나 기존 대비 다양한 유형의 데이터가 추가되었을 때 모델 재학습 이후에도 기존과 성능 차이가 적음</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -65,7 +70,7 @@ export default {
               <li>모델 일관성: 새롭거나 기존 대비 다양한 유형의 데이터가 추가되었을 때 모델 재학습 이후에도 기존과 성능 차이가 적음</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -86,7 +91,7 @@ export default {
               <li>알려지지 않은 불량 유형 탐지: 학습 데이터셋과 다른 새로운 패턴의 유형을 구분하는 능력</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -107,7 +112,7 @@ export default {
               <li>결함 맥락 해석: 모델이 인식한 결함에 history를 반영하여 원인 공정 설명하거나 공정 변수와 연결하여 해석하는 능력</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -128,7 +133,7 @@ export default {
               <li>인적 자원: 재학습 주기 및 관리, 운영 및 유지보수에 필요한 인원 및 시간</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -149,7 +154,7 @@ export default {
               <li>모델의 확장성: 새롭거나 기존 대비 다양한 유형의 데이터가 추가되었을 때 모델 재학습 이후에도 기존과 성능 차이가 적음</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -170,7 +175,7 @@ export default {
               <li>모델의 확장성: 새롭거나 기존 대비 다양한 유형의 데이터가 추가되었을 때 모델 재학습 이후에도 기존과 성능 차이가 적음</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -191,7 +196,7 @@ export default {
               <li>최초 개발 소요 자원: 최초 모델의 학습 및 평가에서 소요되는 인적, 물적 자원이 효율적인지</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -212,7 +217,7 @@ export default {
               <li>실시간 사용 편의성: 실시간으로 사용이 가능하여 사용에 불편함이 없는지 여부</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,
@@ -233,7 +238,7 @@ export default {
               <li>실시간 사용 편의성: 실시간으로 사용이 가능하여 사용에 불편함이 없는지 여부</li>
             </ul>
           `,
-            // isRequired: true,
+            isRequired: true,
             rateMin: 1,
             rateMax: 9,
             showRateValues: true,

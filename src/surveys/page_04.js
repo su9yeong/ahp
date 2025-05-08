@@ -7,14 +7,16 @@ export default {
         {
           type: "html",
           name: "intro",
-          html: "(5점 리커트 척도: 1 = 전혀 그렇지 않다, 5 = 매우 그렇다)"
+          html: `
+          다음은 응답자의 의도를 파악하기 위한 설문입니다. </br>
+          (5점 리커트 척도: 1 = 전혀 그렇지 않다, 5 = 매우 그렇다)`
         },
 
         {
           type: "matrix",
           name: "A",
           title: "A. 성과 기대 (Performance Expectancy)",
-          // isAllRowRequired: true,
+          isAllRowRequired: true,
           // horizontalScroll: true,
           // columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           columns: ["1", "2", "3", "4", "5"],
@@ -38,7 +40,7 @@ export default {
           name: "B",
           title: "B. 노력 기대 (Effort Expectancy)",
           cellType: "radiogroup",
-          // isAllRowRequired: true,
+          isAllRowRequired: true,
           // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
@@ -61,7 +63,7 @@ export default {
           name: "C",
           title: "C. 지원 조건 (Facilitating Conditions)",
           cellType: "radiogroup",
-          // isAllRowRequired: true,
+          isAllRowRequired: true,
           // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
@@ -87,7 +89,7 @@ export default {
           name: "D",
           title: "D. 설명 가능성 (Explainability)",
           cellType: "radiogroup",
-          // isAllRowRequired: true,
+          isAllRowRequired: true,
           // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
@@ -113,7 +115,7 @@ export default {
           name: "E",
           title: "E. 신뢰성 (Trust)",
           cellType: "radiogroup",
-          // isAllRowRequired: true,
+          isAllRowRequired: true,
           // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
@@ -137,7 +139,7 @@ export default {
           name: "F",
           title: "F. 사회적 영향 (Social Influence)",
           cellType: "radiogroup",
-          // isAllRowRequired: true,
+          isAllRowRequired: true,
           // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [
@@ -163,7 +165,7 @@ export default {
           name: "G",
           title: "G. 조직 준비도 (Organizational Readiness)",
           cellType: "radiogroup",
-          // isAllRowRequired: true,
+          isAllRowRequired: true,
           // horizontalScroll: true,
           columns: [1, 2, 3, 4, 5].map((i) => ({ value: i, text: String(i) })),
           rows: [

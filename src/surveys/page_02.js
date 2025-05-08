@@ -8,7 +8,15 @@ export default {
                 type: "html",
                 name: "main_02",
                 html: `
-                <img src="${require("./image_hier_02.png")}" alt="hierarchy_02" style="max-width: 100%; height: auto; margin-top: 0.5rem;"/>`
+
+               <div style="text-align: center; margin-top: 0.5rem;">
+              <img
+                src="${require("./image_hier_02.png")}"
+                alt="hierarchy_02"
+                style="max-width: 80%; height: auto;"
+              />
+            </div>
+               `
               },
 
     { 
@@ -23,7 +31,7 @@ export default {
         <li>모델의 성능: 결함의 탐지 및 정밀도에 대한 모델 자체의 성능이 좋은지를 (입력 데이터 결함 제외) 평가합니다.</li>
       </ul>
     `,
-      // isRequired: true,
+      isRequired: true,
       rateMin: 1,
       rateMax: 9,
       showRateValues: true,
@@ -45,7 +53,7 @@ export default {
         <li>모델의 설명 가능성: 모델이 결함을 인식하는 과정이 이해하기 쉽게 설명되는지, 모델이 인식한 결함 결과에 따른 원인자(특정 공정 또는 입력 이미지 등)가 명확히 설명되는지를 평가합니다.</li>
       </ul>
     `,
-      // isRequired: true,
+      isRequired: true,
       rateMin: 1,
       rateMax: 9,
       showRateValues: true,
@@ -67,7 +75,7 @@ export default {
         <li>모델의 설명 가능성: 모델이 결함을 인식하는 과정이 이해하기 쉽게 설명되는지, 모델이 인식한 결함 결과에 따른 원인자(특정 공정 또는 입력 이미지 등)가 명확히 설명되는지를 평가합니다.</li>
       </ul>
     `,
-      // isRequired: true,
+      isRequired: true,
       rateMin: 1,
       rateMax: 9,
       showRateValues: true,
@@ -89,7 +97,7 @@ export default {
         <li>실무 적용성: 모델 배포 후 기존 사용하고 있는 시스템이나 설비 등에 사용 가능한지, end-user가 실시간으로 미세 조정이 가능한지, 실시간 사용이 가능한지를 평가합니다.</li>
       </ul>
     `,
-      // isRequired: true,
+      isRequired: true,
       rateMin: 1,
       rateMax: 9,
       showRateValues: true,
