@@ -26,7 +26,7 @@ export default {
               <img
                 src="${require("./image_scale.png")}"
                 alt="hierarchy_scale"
-                style="max-width: 80%; height: auto;"
+                style="max-width: 100%; height: auto;"
               />
             </div>
             `
