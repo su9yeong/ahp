@@ -14,6 +14,8 @@ Serializer.addProperty("rating", {
   default: "",
 });
 
+
+
 export default function App() {
   const [stage, setStage] = useState(0);
   const [surveyJson, setSurveyJson] = useState(mainJson);
@@ -52,8 +54,6 @@ export default function App() {
           <p>Your responses have been recorded.</p>
         </div>
     `;
-  
-
     
     // 완료시에만 한 번 서버로 전송
     m.onComplete.add(async sender => {
@@ -77,8 +77,6 @@ export default function App() {
           //   </div>`;
         setStage(4);
       });
-
-
 
     // Rating 질문이 렌더될 때마다 min/max 레이블 옮기기
     m.onAfterRenderQuestion.add((sender, options) => {
@@ -112,15 +110,25 @@ export default function App() {
     return m;
   }, [surveyJson, allAnswers]);
 
-  // 유효성 검사
+
   const validatePage = () => {
-    const errs = model.currentPage.validate();
-    if (errs && errs.length) {
-      model.currentPage.showErrors(true, true);
-      return false;
-    }
-    return true;
+    // 1) 페이지 검증 (false 면 에러 메시지들이 자동으로 렌더됨)
+    const isValid = model.validatePage();
+    if (isValid) return true;
+  
+    // 2) 검증 실패 시, 첫 번째 에러 메시지 위치로 스크롤
+    setTimeout(() => {
+      const errEl =
+        document.querySelector(".sd-page__error") || // 에러 summary
+        document.querySelector(".sd-question--error"); // 개별 질문 에러
+      if (errEl) {
+        errEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 0);
+  
+    return false;
   };
+
 
   // Prev / Next
   const handlePrev = () => {
@@ -139,11 +147,10 @@ export default function App() {
       setStage(0);
     }
   };
-
+ 
   
   const handleNext = () => {
     if (stage < 3 && !validatePage()) return;
-
 
     if (stage === 3) {
       setStage(4);
@@ -223,3 +230,5 @@ export default function App() {
     </div>
   );
 }
+
+

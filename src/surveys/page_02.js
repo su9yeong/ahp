@@ -114,9 +114,9 @@ export default {
           title: "이후 질문부터는 선택의 편의성을 위해 아래 Task 중 본인과 연관된 분야를 선택하여 응답하실 수 있습니다.",
           isRequired: true,
           choices: [
-            { value: "page_03_01_wbm", text: "WBM 설문" },
-            { value: "page_03_02_fdc", text: "FDC 설문" },
-            { value: "page_03_03_gen", text: "비해당" }
+            { value: "page_03_01_wbm", text: "WBM (Wafer Bin Map) 자동 분류" },
+            { value: "page_03_02_fdc", text: "FDC (Fault Detection & Classification) Trend 자동 이상 감지" },
+            { value: "page_03_03_gen", text: "WBM, FDC 비해당" }
           ],
           choicesLayout: "vertical"
         }

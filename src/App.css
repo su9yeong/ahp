@@ -601,3 +601,10 @@
     text-align: right !important;
   }
   
+
+ 
+.survey-wrapper .survey-body .sd-question__erbox,
+.survey-wrapper .survey-body .sd-element__erbox {
+    text-align: center !important;
+    font-style: italic !important;
+}
