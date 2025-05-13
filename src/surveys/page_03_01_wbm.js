@@ -198,7 +198,7 @@ EDS test 진행 후 Wafer BIN Map을 보고 사람이 직접 분류를 진행합
             rateMax: 9,
             showRateValues: true,
             displayMode: "buttons",
-            minRateDescription: "물적 자원",
+            minRateDescription: "인적 자원",
             maxRateDescription: "모델의 확장성",
             labelPosition: "bottom"
           },

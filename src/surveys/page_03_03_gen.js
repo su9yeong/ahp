@@ -180,7 +180,7 @@ export default {
             rateMax: 9,
             showRateValues: true,
             displayMode: "buttons",
-            minRateDescription: "물적 자원",
+            minRateDescription: "인적 자원",
             maxRateDescription: "모델의 확장성",
             labelPosition: "bottom"
           },
